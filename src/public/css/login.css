@@ -1,0 +1,67 @@
+
+.main{
+    background-color: rgba(220, 220, 220, 0.3);
+    padding-bottom: 20%;
+}
+
+.main__inner{
+    width: 40%;
+    margin: 0 auto;
+
+}
+
+.main__content{
+    text-align: center;
+    padding-top: 20%;
+}
+
+.form__box{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 5%;
+}
+
+.email{
+    margin-top: 5%;
+    height: 50px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid darkgrey;
+    background-color: rgba(220, 220, 220, 0);
+
+}
+
+.password{
+    margin-top: 5%;
+    height: 50px;
+    padding: 8px;
+    border-radius: 5px;
+    border:2px solid darkgrey;
+    background-color: rgba(220, 220, 220, 0);
+}
+
+.login__btn{
+    margin-top: 5%;
+    height: 50px;
+    border-radius: 5px;
+    border:5px solid blue;
+    color: white;
+    font-size: 100%;
+    background-color: blue;
+}
+
+p1{
+    color: grey;
+}
+
+.register__link{
+    margin-top: 0%;
+    border-color: lightgrey;
+}
+
+.register{
+    text-decoration: none;
+    color: blue;
+}

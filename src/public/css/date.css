@@ -1,0 +1,59 @@
+/* ここからmain部分*/
+.date__page {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.date__btn {
+    text-decoration: none;
+    font-size: 200%;
+    margin: 0 5%;
+    color: blue;
+    border: 2px solid blue;
+    padding: 0% 2%;
+}
+
+.select__day {
+    margin-left: 0%;
+}
+
+/* テーブル部分 */
+
+.date__table {
+    width: 80%;
+    margin: 3% auto;
+}
+
+th {
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    font-size: 130%;
+    padding: 2% 0%;
+}
+
+td {
+    border-top: 1px solid darkgray;
+        border-bottom: 1px solid darkgray;
+        font-size: 130%;
+        padding: 2% 0%;
+}
+
+
+
+
+
+/* 下の部分がstamp.cssと一緒 */
+.footer__inner {
+    text-align: center;
+    padding-top: 1%;
+}
+
+.footer__logo {
+    font-size: 100%;
+    font-weight: bold;
+}
