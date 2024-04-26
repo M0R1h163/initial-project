@@ -42,18 +42,3 @@ td {
         font-size: 130%;
         padding: 2% 0%;
 }
-
-
-
-
-
-/* 下の部分がstamp.cssと一緒 */
-.footer__inner {
-    text-align: center;
-    padding-top: 1%;
-}
-
-.footer__logo {
-    font-size: 100%;
-    font-weight: bold;
-}

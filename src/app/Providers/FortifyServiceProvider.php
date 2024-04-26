@@ -30,17 +30,18 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::createUsersUsing(CreateNewUser::class);
 
-        Fortify::registerView(function () {
-        return view('register');
-        });
+        /**Fortify::registerView(function () {
+        return view('auth.date');
+        });*/
 
         Fortify::loginView(function () {
         return view('login');
         });
 
+        //loginという名前のレート制限グループを定義
         RateLimiter::for('login', function (Request $request) {
         $email = (string) $request->email;
-
+        //ログイン機能に対するリクエストを1分間に10回まで制限し、同じメールアドレスとIPアドレスからのリクエストを区別して制限するためのもの
         return Limit::perMinute(10)->by($email . $request->ip());
         });
     }

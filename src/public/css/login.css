@@ -64,4 +64,6 @@ p1{
 .register{
     text-decoration: none;
     color: blue;
+    border: none;
+    outline: none;
 }

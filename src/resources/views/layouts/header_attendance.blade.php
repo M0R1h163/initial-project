@@ -12,7 +12,7 @@
 <body>
     {{-- {{}}は0章Laravel入門0-9 view編 bladeファイルを作成する参照 --}}
     {{-- laravel 演習講座 0-7 Bladeを使った記述 共通部分のlayout化 --}}
-{{--@if (Auth::check())--}}
+
     <div class="header">
         <div class="header__inner">
             <a href="/" class="header__logo"><h1>Atte</h1></a>
@@ -33,8 +33,6 @@
             <p2 class="footer__logo">Atte,inc.</p2>
         </div>
     </div>
-
-{{--@endif--}}
 
 </body>
 
