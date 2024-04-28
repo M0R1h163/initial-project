@@ -17,6 +17,7 @@
         <div class="header__inner">
             <a href="/" class="header__logo"><h1>Atte</h1></a>
             <nav class="header__items">
+                @if (Auth::check())
                 <li><a href="/" class="home">ホーム</a></li>
                 <li><a href="/date" class="date">日付一覧</a></li>
                 <li><form class="form" action="/logout" method="POST">
@@ -24,6 +25,7 @@
                     <button class="logout">ログアウト</button>
                     </form>
                 </li>
+                @endif
             </nav>
         </div>
     </div>

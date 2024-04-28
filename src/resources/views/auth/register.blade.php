@@ -17,7 +17,7 @@
                     @error('name')
                     <b>{{$errors->first('name')}}</b>
                     @enderror
-
+                    
                     <input class="email" type="email" name="email" value="{{ old('email') }}" placeholder="メールアドレス">
                     @error('email')
                     <b>{{$errors->first('email')}}</b>

@@ -19,15 +19,23 @@ use App\Http\Controllers\AuthController;
 //Laravel入門　0-8:route編　ルートプレフィックス参照　login/*** など *基本的はコントローラーで指示//
 
 //会員登録
-Route::get('/register', [AuthController::class, 'create']);
-Route::post('/register', [AuthController::class,'store']);
+// Route::get('/register', [AuthController::class, 'create']);
+// Route::post('/register', [AuthController::class,'store']);
 
-//ログイン
+// ホーム(打刻画面)のルート
+Route::get('/', [AuthController::class, 'stamp']);
+
+//日別勤務一覧のルート
+Route::get('/date', [AuthController::class, 'date']);
+
+//ログイン後のルート
 Route::middleware('auth')->group(function () {
     // Route::get('/', [AuthController::class, 'showLoginForm']);
-    Route::get('/', [AuthController::class, 'index']);
-    Route::post('/logout', [AuthController::class, 'destroy']);
+    Route::get('/', [AuthController::class, 'stamp']);
+    Route::get('/date', [AuthController::class, 'date']);
 });
+
+
 
 //Route::get('login', [AuthController::class, 'login']);
 //
