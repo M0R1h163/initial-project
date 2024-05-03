@@ -67,3 +67,8 @@ p1{
     border: none;
     outline: none;
 }
+
+.validation {
+    color: red;
+    font-weight: bold;
+}

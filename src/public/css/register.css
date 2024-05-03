@@ -83,3 +83,8 @@ p1 {
     text-decoration: none;
     color: blue;
 }
+
+.validation {
+    color: red;
+    font-weight: bold;
+}

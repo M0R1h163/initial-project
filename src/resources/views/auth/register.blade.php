@@ -6,7 +6,7 @@
 @section('login_register')
     <div class="main">
     @if(count($errors) > 0)
-    <b>入力に問題があります</b>
+    <span class="validation">入力に問題があります</span>
     @endif
         <div class="main__inner">
             <div class="main__content">
@@ -15,22 +15,22 @@
                     @csrf
                     <input class="name" type="text" name="name" value="{{ old('name') }}" placeholder="名前">
                     @error('name')
-                    <b>{{$errors->first('name')}}</b>
+                    <span class="validation">{{$errors->first('name')}}</span>
                     @enderror
-                    
+
                     <input class="email" type="email" name="email" value="{{ old('email') }}" placeholder="メールアドレス">
                     @error('email')
-                    <b>{{$errors->first('email')}}</b>
+                    <span class="validation">{{$errors->first('email')}}</span>
                     @enderror
 
                     <input class="password" type="password" name="password" value="{{old('password')}}" placeholder="パスワード">
                     @error('password')
-                    <b>{{$errors->first('password')}}</b>
+                    <span class="validation">{{$errors->first('password')}}</span>
                     @enderror
 
                     <input class="confirm__password" type="password" name="password_confirmation" placeholder="確認用パスワード">
                     @error('password_confirmation')
-                    <b>{{$errors->first('password_confirmation')}}</b>
+                    <span class="validation">{{$errors->first('password_confirmation')}}</span>
                     @enderror
 
                     <input class="register__btn" type="submit"  value="会員登録">

@@ -11,7 +11,13 @@
                 <form class="form__box" action="/login" method="POST" >
                     @csrf
                     <input class="email" type="email" name="email" value="{{ old('email') }}" placeholder="メールアドレス">
+                    @error('email')
+                    <span class="validation">{{$errors->first('email')}}</span>
+                    @enderror
                     <input class="password" type="text" name="password" placeholder="パスワード">
+                    @error('password')
+                    <span class="validation">{{$errors->first('password')}}</span>
+                    @enderror
                     <button class="login__btn" type="submit">ログイン</button>
                 </form>
                     <p1>アカウントをお持ちでない方はこちらから</p1>

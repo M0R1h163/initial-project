@@ -20,6 +20,13 @@ return [
     'alpha_dash'           => ":attributeには、英数字('A-Z','a-z','0-9')とハイフンと下線('-','_')が使用できます。",
     'alpha_num'            => ":attributeには、英数字('A-Z','a-z','0-9')が使用できます。",
     'array'                => ':attributeには、配列を指定してください。',
+    'attributes'    =>  [
+                    'name' => '名前',
+                    'email'=> 'メールアドレス',
+                    'password' => 'パスワード',
+                    'name.required' => '名前を入力してください',
+
+    ],
     'before'               => ':attributeには、:dateより前の日付を指定してください。',
     'before_or_equal'      => ':attributeには、:date以前の日付を指定してください。',
     'between'              => [
@@ -90,13 +97,18 @@ return [
         'array'   => ':attributeの項目は、:min個以上にしてください。',
     ],
     'multiple_of'          => 'The :attribute must be a multiple of :value',
+    'name'                 =>[
+        'required'  =>  ':nameは、必ず入力してください',
+    ],
     'not_in'               => '選択された:attributeは、有効ではありません。',
     'not_regex'            => ':attributeの形式が無効です。',
     'numeric'              => ':attributeには、数字を指定してください。',
     'password'             => 'パスワードが正しくありません。',
     'present'              => ':attributeが存在している必要があります。',
     'regex'                => ':attributeには、有効な正規表現を指定してください。',
-    'required'             => ':attributeは、必ず指定してください。',
+    'required'             => ':attributeは、必ず入力してください。',
+    'name.required' =>  '名前を入力してください',
+    //
     'required_if'          => ':otherが:valueの場合、:attributeを指定してください。',
     'required_unless'      => ':otherが:values以外の場合、:attributeを指定してください。',
     'required_with'        => ':valuesが指定されている場合、:attributeも指定してください。',
@@ -129,6 +141,8 @@ return [
     |
     */
 
+    
+    // ここでfotifyのバリデーションを変更？参考URL：https://qiita.com/shizen-shin/items/02dc2f163d81483953b8
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',

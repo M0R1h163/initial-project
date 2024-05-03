@@ -34,6 +34,10 @@ class FortifyServiceProvider extends ServiceProvider
         return view('auth.register');
         });
 
+        // カスタムバリデーション用（再呼び出し）
+        Fortify::registerView('auth.register');
+
+
         Fortify::loginView(function () {
         return view('auth.login');
         });
@@ -47,5 +51,5 @@ class FortifyServiceProvider extends ServiceProvider
     }
 
 
-    
+
 }
