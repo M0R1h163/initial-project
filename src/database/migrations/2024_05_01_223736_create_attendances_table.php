@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Carbon;
 
 class CreateAttendancesTable extends Migration
 {
@@ -14,13 +15,12 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->id();
-            $table->bigIncrements('user_id');
-            $table->foreignId('user_id');
+            $table->id()->autoIncrement();
+            $table->foreignId('users_id')->constrained()->cascadeOnUpdate();
             $table->datetime('date');
-            $table->timestamp('start_time')->nullable();
+            $table->timestamp('start_time');
             $table->timestamp('end_time')->useCurrent()->nullable();
-            $table->timestamps()->useCurrent()->nullable();
+            $table->timestamps();
         });
     }
 

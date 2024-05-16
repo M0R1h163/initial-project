@@ -7,14 +7,20 @@
 @section('stamp_date')
 <div class="main">
         <div class="main__inner">
-            <h2 class="message">~~~~~~さんお疲れ様です！</h2>
+            @if(Auth::check())
+            <h2 class="message">{{ Auth::user()->name }} さんお疲れ様です！</h2>
+            @endif
             <div class="Atte__inner">
                 <div class="work">
-                    <form class="work__start" action="" >
-                        <input class="work-start__button" type="submit"  value="勤務開始">
+                    <form class="work__start" action="/attendance-start"  method="POST">
+                        @csrf
+                        <input type="hidden"  name="start_time">
+                        <button class="work-start__button" type="submit">勤務開始</button>
                     </form>
-                    <form class="work__end" action="" >
-                        <input class="work-end__button" type="submit"  value="勤務終了">
+                    <form class="work__end" action="/" method="POST">
+                        @csrf
+                        <input type="hidden"  name="end_time">
+                        <button class="work-end__button" type="submit">勤務終了</button>
                     </form>
                 </div>
                 <div class="break">

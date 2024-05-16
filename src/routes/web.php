@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,22 +28,26 @@ Route::get('/', [AuthController::class, 'stamp']);
 //日別勤務一覧のルート
 Route::get('/date', [AuthController::class, 'date']);
 
+//勤務開始のルート
+Route::post('/attendance-start', [AttendanceController::class, 'startTime']);
+
+//勤務終了のルート
+Route::post('/', [AttendanceController::class, 'endTime']);
+
 //ログイン後のルート
 Route::middleware('auth')->group(function () {
     // Route::get('/', [AuthController::class, 'showLoginForm']);
     Route::get('/', [AuthController::class, 'stamp']);
     Route::get('/date', [AuthController::class, 'date']);
+    //勤務開始のルート
+    Route::post('/', [AttendanceController::class, 'startTime']);
+    //勤務終了のルート
+    Route::post('/', [AttendanceController::class, 'endTime']);
 });
 
 
 
-//Route::get('login', [AuthController::class, 'login']);
-//
 
-
-
-// // Route::middleware('auth')->group(function () {
-// // Route::get('/', [AttendanceController::class, 'stamp']);
-// // Route::get('/date',[AttendanceController::class, 'date']);
-// });
+//Attendanceコントローラーのルート
+// Route::get('/stamp',[AttendanceController::class, 'stamp']);
 
