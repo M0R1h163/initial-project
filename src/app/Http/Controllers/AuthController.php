@@ -18,12 +18,5 @@ class AuthController extends Controller
     public function date(){
         return view('date');
     }
-    //リクエスト内容の送信(register)
-    // public function store(AuthorRequest $request){
-        // $form = $request->all();
-        // User::create($form);//Userモデルにデータを作成(送信)
-        // return redirect('/login');}
-
-    //作成したユーザー情報の表示＿Laravel入門0-15〜データの追加Eloquentを使用してデータを保存しよう〜
 
 }

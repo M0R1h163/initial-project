@@ -45,7 +45,8 @@ class FortifyServiceProvider extends ServiceProvider
         //loginという名前のレート制限グループを定義
         RateLimiter::for('login', function (Request $request) {
         $email = (string) $request->email;
-        //ログイン機能に対するリクエストを1分間に10回まで制限し、同じメールアドレスとIPアドレスからのリクエストを区別して制限するためのもの
+        /*ログイン機能に対するリクエストを1分間に10回まで制限、
+        同じメールアドレスとIPアドレスからのリクエストを区別して制限する*/
         return Limit::perMinute(10)->by($email . $request->ip());
         });
     }

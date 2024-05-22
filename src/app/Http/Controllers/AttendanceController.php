@@ -11,6 +11,18 @@ use Carbon\Carbon;
 
 class AttendanceController extends Controller
 {
+    public function HomeButton(Request $request)
+    {
+        $userId=Auth::id();
+        $startButton = Attendance::where('users_id', $userId)
+            ->whereNull('start_time','end_time')
+            ->first();
+        $endButton = Attendance::where('users_id', $userId)
+            ->whereNull('end_time')
+            ->first();
+        return view('stamp',compact('startButton','endButton'));
+    }
+
     public function startTime(Request $request)
     {
         $userId=Auth::id();
@@ -27,21 +39,18 @@ class AttendanceController extends Controller
     public function endTime(Request $request)
     {
         $userId=Auth::id();
-        $latest_attendance = Attendance::where('users_id', $userId)
-            ->whereNull('end_time')
-            ->orderBy('id', 'DESC')
-            ->first();
         $end_time = Carbon::now();
         $end = [
             'end_time' => Carbon::parse($end_time)->format('Y-m-d H:i:s'),
         ];
+
+        $latest_attendance = Attendance::where('users_id', $userId)
+            ->whereNull('end_time')
+            ->orderBy('id', 'DESC')
+            ->first();
         $latest_attendance->update($end);
         return redirect()->back();
-
     }
 
-    // public function stamp(Request $request){
-    // $items = Attendance::all();
-    // return view('stamp', ['items'=>$items]);
-    // }
+
 }

@@ -17,18 +17,22 @@
                         <input type="hidden"  name="start_time">
                         <button class="work-start__button" type="submit">勤務開始</button>
                     </form>
-                    <form class="work__end" action="/" method="POST">
+                    <form class="work__end" action="/attendance-end" method="POST">
                         @csrf
                         <input type="hidden"  name="end_time">
-                        <button class="work-end__button" type="submit">勤務終了</button>
+                        <button class="work-end__button" type="submit" @disabled($startButton,)>勤務終了</button>
                     </form>
                 </div>
                 <div class="break">
-                    <form class="break__start" action="" >
-                        <input class="break-start__button" type="submit"  value="休憩開始">
+                    <form class="break__start" action="/breaks-start" method="POST">
+                        @csrf
+                        <input type="hidden"  name="start_time">
+                        <button class="break-start__button" type="submit">休憩開始</button>
                     </form>
-                    <form class="break__end" action="" >
-                        <input class="break-end__button" type="submit"  value="休憩終了">
+                    <form class="break__end" action="/breaks-end" method="POST">
+                        @csrf
+                        <input type="hidden"  name="end_time">
+                        <button class="break-end__button" type="submit">休憩終了</button>
                     </form>
                 </div>
             </div>

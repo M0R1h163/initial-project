@@ -26,7 +26,8 @@ class AuthorRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed',//リクエスト、文字列、確認用パスワードと一致を条件？　文字数いる？
+            //リクエスト、文字列、確認用パスワードと一致を条件
+            'password' => 'required|string|confirmed',
             'password_confirmation' =>'required|string',
         ];
     }
@@ -35,10 +36,12 @@ class AuthorRequest extends FormRequest
     public function messages()
     {
         return[
-            'name.required' => '名前を入力してください' ,//rulesの該当して欲しいルールがname.で続く
+            //rulesの該当して欲しいルールがname.で続く
+            'name.required' => '名前を入力してください' ,
             'email.required' => 'メールアドレスを入力してください',
             'password.required' => 'パスワードを入力してください',
-            'password.confirmed' => 'パスワードが違います',//rulesの該当して欲しいルールがpassword.で続く、この時は入力と確認が一致すること
+            //rulesの該当して欲しいルールがpassword.で続く、入力と確認が一致
+            'password.confirmed' => 'パスワードが違います',
             'password_confirmation.required' => '再度パスワードを入力してください',
         ];
     }

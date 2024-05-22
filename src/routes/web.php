@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\BreakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +17,6 @@ use App\Http\Controllers\AttendanceController;
 |
 */
 
-//Laravel入門　0-8:route編　ルートプレフィックス参照　login/*** など *基本的はコントローラーで指示//
-
-//会員登録
-// Route::get('/register', [AuthController::class, 'create']);
-// Route::post('/register', [AuthController::class,'store']);
-
 // ホーム(打刻画面)のルート
 Route::get('/', [AuthController::class, 'stamp']);
 
@@ -32,22 +27,28 @@ Route::get('/date', [AuthController::class, 'date']);
 Route::post('/attendance-start', [AttendanceController::class, 'startTime']);
 
 //勤務終了のルート
-Route::post('/', [AttendanceController::class, 'endTime']);
+Route::post('/attendance-end', [AttendanceController::class, 'endTime']);
+
+//休憩開始のルート(作成途中)
+Route::post('/breaks-start', [BreakController::class, 'breakStart']);
+
+//休憩終了のルート(作成途中)
+Route::post('/breaks-end', [BreakController::class, 'breakEnd']);
+
 
 //ログイン後のルート
 Route::middleware('auth')->group(function () {
-    // Route::get('/', [AuthController::class, 'showLoginForm']);
     Route::get('/', [AuthController::class, 'stamp']);
     Route::get('/date', [AuthController::class, 'date']);
     //勤務開始のルート
     Route::post('/', [AttendanceController::class, 'startTime']);
     //勤務終了のルート
     Route::post('/', [AttendanceController::class, 'endTime']);
+    //休憩開始のルート(作成途中)
+    Route::post('/', [BreakController::class, 'breakStart']);
+    //休憩終了のルート(作成途中)
+    Route::post('/', [BreakController::class, 'breakEnd']);
 });
 
 
-
-
-//Attendanceコントローラーのルート
-// Route::get('/stamp',[AttendanceController::class, 'stamp']);
 
